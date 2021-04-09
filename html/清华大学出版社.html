@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实验二</title>
+    <link type="text/css" rel="stylesheet" href="清华大学出版社.css"/>
+    <script type="text/javascript" src="清华大学出版社.js"></script>
+</head>
+<body>
+<h3>清华大学出版社图书管理平台</h3>
+<div id="content">
+    <p class="header">图书入库</p>
+    <form action="#" method="GET">
+        <table id="input_tbl">
+            <tr>
+                <td class="label">序号：</td>
+                <td colspan="3"><input type="text" id="book_id" name="book_id"/></td>
+                <td class="label">书代号：</td>
+                <td colspan="2"><input type="text" id="number" name="number"/></td>
+            </tr>
+            <tr>
+                <td class="label">书名：</td>
+                <td colspan="3"><input type="text" id="book_name" name="book_name"/></td>
+                <td class="label">作者：</td>
+                <td colspan="2"><input type="text" id="author" name="author"/></td>
+            </tr>
+            <tr>
+                <td class="label">定价：</td>
+                <td class="adjWid"><input type="text" id="price" name="price"/></td>
+                <td class="label">年份：</td>
+                <td class="adjWid"><input type="date" id="year" name="year"/></td>
+                <td colspan="2" id="ISBN_lab">ISBN:</td>
+                <td><input type="text" id="ISBN" name="ISBN"/></td>
+            </tr>
+            <tr>
+                <td colspan="7" align="center"><input type="button" value="确定" onclick="add()"/></td>
+            </tr>
+        </table>
+
+        <p class="header">现存图书列表</p>
+        <table id="list_tbl">
+            <tr>
+                <td width="8%">序号</td>
+                <td width="15%" width="20%">书代号</td>
+                <td width="15%">书名</td>
+                <td width="8%">定价</td>
+                <td width="8%">作者</td>
+                <td width="8%">年份</td>
+                <td width="15%">ISBN</td>
+                <td bgcolor="white" width="5%"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
