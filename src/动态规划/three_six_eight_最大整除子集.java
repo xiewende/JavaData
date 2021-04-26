@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -138,4 +139,48 @@ public class three_six_eight_最大整除子集 {
 
         return ans.get(ans_index);
     }
+
+    public List<Integer> largestDivisibleSubset3(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+
+        List<Integer> res = new LinkedList<>();
+        int[] dp = new int[n];          // 记录了nums[i]整除子集的长度
+        int[] preIdx = new int[n];      // 记录了nums[i]的前一个最大公约数下标
+        int maxIdx = 0, maxLen = 0;     // 本题中的dp并不是dp[-1]为最大值，可能在中间，所以这两个值记录dp数组中最大值及其下标
+
+        dp[0] = 1;
+        preIdx[0] = -1;
+
+        for (int i = 1; i < n; i++) {
+            // 往前找最大能整除的
+            int val = 1;
+            int pre = -1;
+            for (int j = 0; nums[j] <= nums[i] * 0.5; j++) {  //优化：因为是倍数关系，且不相等（不为1倍），这样判断可以节省一半扫描 除以2直接减少一半的扫描
+                if(nums[i] % nums[j] == 0){
+                    if(dp[j] + 1 > val){
+                        val = dp[j] + 1;
+                        pre = j;
+                    }
+                }
+            }
+            dp[i] = val;
+            preIdx[i] = pre;
+            if(val > maxLen){
+                maxLen = val;
+                maxIdx = i;
+            }
+        }
+
+        // while循环根据preIdx找出所有的集合
+        int idx = maxIdx;
+        while(idx != -1){
+            res.add(0, nums[idx]);
+            idx = preIdx[idx];
+        }
+
+        return res;
+    }
+
+
 }
