@@ -7,13 +7,18 @@ import org.junit.Test;
  */
 public class one_zero_one_one_在D天内送达包裹的能力 {
 
-    @Test
+
+    public static void main(String[] args){
+
+    }
+
+   /* @Test
     public void test(){
         int weights[] = {1,2,3,1,1};
         int D = 4;
         int i = shipWithinDays3(weights, D);
         System.out.println(i);
-    }
+    }*/
 // D = 3
 //  1 2 3 4 5
 
@@ -97,6 +102,7 @@ public class one_zero_one_one_在D天内送达包裹的能力 {
         return left;
     }
 
+    //用于判断在 运载能力为sum的时候能否在D天内运输完毕！！采用贪心的策略
     public boolean judge(int[] weights, int D,int sum){
         int count = 0;
         int temSum = 0;
@@ -112,6 +118,8 @@ public class one_zero_one_one_在D天内送达包裹的能力 {
         }
         return true;
     }
+
+
 
 
 }
