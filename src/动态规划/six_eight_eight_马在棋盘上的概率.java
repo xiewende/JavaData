@@ -23,7 +23,6 @@ public class six_eight_eight_马在棋盘上的概率 {
         //初始化
         dp_old[r][c] = 1;   //一开始的位置
         for(int i = 0; i < K; i++){ //K次
-
             for (int x = 0; x < N; x++) {
                 for (int y = 0; y < N; y++) {
                     //四面八方累加dp
