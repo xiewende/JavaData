@@ -33,12 +33,12 @@ public class four_seven_three_火柴拼正方形 {
     }
 
     public boolean dfs(int[] nums,int index,int edge[],int edgeLen){
-        if(index == 0){
+        if(index == -1){
             if(edge[0]==edge[1] && edge[1]==edge[2] &&edge[3]==edge[2] ) return true;
             return false;
         }
         for(int i=0;i<4;i++){
-            if(edge[i] + nums[index]>edgeLen || (i>0&&edge[i]==edge[i-1]) ){
+            if(edge[i] + nums[index]>edgeLen || (i>0&&edge[i]==edge[i-1])){
                 continue;
             }
             //加入边
@@ -48,4 +48,6 @@ public class four_seven_three_火柴拼正方形 {
         }
         return false;
     }
+
+
 }
